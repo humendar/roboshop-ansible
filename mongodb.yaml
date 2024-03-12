@@ -10,7 +10,7 @@
 
  - name:Install mongodb
     ansible.builtin.package:
-      name: mongodb.org
+      name: mongodb-org
       state: present
 
  - name:start and enable mongodb
@@ -24,5 +24,11 @@
      path: /etc/mongodb.conf
      regexp: '127.0.0.1'
      replace: '0.0.0.0'
+
+ - name:start and enable mongodb
+    ansible.builtin.service:
+      name: mongodb
+      state: started
+      
 
 
